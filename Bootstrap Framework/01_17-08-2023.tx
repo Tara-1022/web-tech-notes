@@ -1,0 +1,52 @@
+Web UI Design framework (front-end) - predefined CSS templates/styles
+- no need to write raw CSS
+
+Responsive web design - creating sites that automatically adjust to look good on all devices and layouts
+
+set viewport
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+Library to be included in HTML page
+-> from Content Delivery Network (CDN) [provides library files for oublic use by devs]
+-> Download from getbootstrap.com
+
+-> link => either download or use CDN link - bootstrap.min.CSS
+-> script => " - boostrap.bundle.min.js
+
+min => compressed form
+
+--------------------------------------------------------------------------------------------------------------------------------------
+IA1
+HTML list, links
+form element - video, input types
+table (colspan, rowspan, cellspacing, bgcolor)
+    thead, tbody, tfoot - new html5 version - group row
+media
+
+CSS basic, selectors with examples - html + css sample code, 
+text formatting tags - text-decoration: overline, underline, none, line-through
+background properties - colour, image, size, repeat
+
+CSS box model properties - margin, padding, width, height
+margin - border & other elememnt, padding - border & content - margin-left, margin-right..
+multivalue margin => clockwise
+
+border - syntax
+box shadow
+opacity
+hover effect
+link + pseudoclasses, list
+input:focus pseudoclass
+
+position values
+
+Navbar
+
+=> code
+
+JS - alert, write, 
+functions
+video
+operations on input - calculator
+events - onclick, onload, onchange
+display in textbox - set value

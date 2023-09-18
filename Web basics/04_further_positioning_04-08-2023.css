@@ -1,0 +1,43 @@
+*{
+    margin:0px;
+}
+
+.container{
+    border: 2px solid red;
+    width: 500px;
+    height: 200px;
+    margin: 30px;
+    position:relative;
+    overflow: hidden;
+    /* parent must not be static or inherit for the child absolute position to be relative to the parent */
+}
+
+.container:hover{
+    background-color: rgb(182, 126, 126);
+    color: wheat;
+    left: 20px;
+    transition: 0.5s;
+}
+
+.child{
+    background-image: url("image.jpg");
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background-size: cover;
+    position: absolute;
+    background-repeat: no-repeat;
+    top: 30px;
+    left: 30px;
+    box-shadow: 5px 5px 0px 3px rgb(27, 26, 26);
+    opacity: 0.8;
+}
+
+.child:hover{
+    opacity: 1;
+    top: 20px;
+    color: black;
+
+}
+/* ex4: back relative
+form absolute */

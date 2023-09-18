@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- no need of css file with bs5 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Forms</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- net connection since links -->
+</head>
+<body>
+    <!-- form =? form-group; 
+        input => form-control makes text box a bloc level element - entire width-->
+    <div class="container border border-info mt-2 rounded pb-3 w-25">
+        <!-- width => w-pct; relative to viewport -->
+        <form action="" class="form-group">
+        <!-- fw - font weight
+        bolder bold lighter -->
+            <label class="text-primary fw-bolder" for=""> Name</label>
+            <input class="form-control w-50" type="text">
+            
+            <label for="">Real Name</label>
+            <input class="form-control" type="text">
+            <br>
+            <!-- box shadow => shadow[-sm|lg] -->
+            <button class="btn-color shadow-lg">Button?</button>
+        </form>
+    </div>
+
+    <!-- bootstrap grid system
+    page can be divided into <= 12 cols, rows
+     eg 4 (or fewer) cols span 3-->
+    <!-- flexbox -->
+
+    <div class="container-fluid mt-5" style="text-align: center;">
+        <div class="row shadow">
+            <div class="col bg-info p-2">
+                One
+            </div>
+            <div class="col bg-primary">
+                Two
+            </div>
+            <div class="col bg-dark text-white p-2">
+                Three
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 border border-primary">Four!</div>
+            <div class="col-4 border border-secondary">Five...</div>
+        </div>
+        <div class="row">
+            <div class="col-1 border border-info">
+                Six
+            </div>
+            <div class="col-2 border border-primary">
+                Seven
+            </div>
+            <div class="col-3 border border-dark">
+                Eight
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function alertnum(n){
+        alert(n)
+    }
+    function whisper(){
+        document.getElementById("output").innerHTML =  "Whisper" + document.getElementById("echo").value
+    }
+    function getInt(a){
+        return parseInt(a);
+    }
+    var name = "John"
+    // js code
+    // optional semicolon
+    // executes automatically on page open
+
+    // Ways to display data [predefined]:-
+    // - alert()        => pop-up dialogue box
+    // alert('Hi This is an Alert.\nWe are watching you, '+name)
+    // waits for previous box to close
+
+
+    // - document.write() => inside the page
+    document.write('20')
+    document.write('<br>19')
+    // page displayed after all alerts closed
+
+    // - console.log()  => console view
+    console.log("ERROR! Missed 18")
+    // find errors in console (inspect) - display intermediate results [status info]
+
+    // - innerHTML  
+    // - value
+
+    // create variables
+    var name = "Me"
+    // computation
+    // var a = 1; var b = 20; alert('Countdown from '+(a+b))
+
+    // Document Object Model - tree-style architecture to store webpage in memory
+    // every node is an object - tags and their contents
+    // used to find elements
+    document.getElementById('id')
+
+    // Functions - basis
+    // script tag is global and runs on execution
+    // alertnum(17)
+        
+    </script>
+</head>
+<body>
+    <!-- insert js code anywhere, using script tag. best in head for separability -->
+    <!-- event handling 
+        onclick - attribute can call functions-->
+    <br>
+    <!-- <button onclick="alertnum(16)">16</button> -->
+
+    <form>
+        Echo: <input type="text" id="echo" placeholder="Tell me">
+        <button onclick="whisper()"> Tell </button>
+        <div id="output">
+            <!-- serve as container in wich data will be updated -->
+            <!-- innerHTML controls content of the div -->
+            Placeholder
+        </div>
+    </form>
+
+
+</body>
+</html>

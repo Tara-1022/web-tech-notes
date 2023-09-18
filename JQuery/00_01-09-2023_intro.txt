@@ -1,0 +1,37 @@
+advanced javascript program
+query -> access elements of content
+external library to simplify js actions
+- HTM/DOM manipulation
+- css
+- event methods
+- effects + animation
+- ajax - get data from servers
+- utilities
+
+include - download from jquery.com
+or - include from cdn (autoupdate but slower)
+
+syntax
+$ - access library
+("selector") to get elements
+.action() - applied to elements
+
+$(".test").click()
+
+
+ensure full document is loaded
+$(document).ready(
+    function(){
+        <jquery code>
+    }
+)
+
+=> avoid nullpointer exception when page still loading
+
+=> nested functions
+
+**JQuery effects**
+- hide elements - hide, show, toggle (delaytime ms)
+- fade - fadeIn, fadeOut, fadeToggle, fadeTo
+- slide - slideDown, slideUp
+- 

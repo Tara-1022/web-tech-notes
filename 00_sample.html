@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #el1:focus{
+            color: green;
+            height: 40px;
+        }
+        #el2:focus{
+            color: purple;
+        }
+    </style>
+</head>
+
+<body style="height: 100%;">
+    <form action="/server" method="get">
+    <input id="el1" type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female
+    <br>
+    
+    <input type="radio" name="name"> Pooja
+    <input type="radio" name="name"> Tara
+    <br>
+    <textarea name="hi" id="el2" cols="30" rows="10"></textarea>
+    <input type="reset" value="Hi" name="hi">
+
+    <select name="gender">
+        <option>Kerala</option>
+        <option>Tamilnadu</option>
+        <option>Andhra Pradesh</option>
+        <option>Karnataka</option>
+        <option>Manipur</option>
+        <option>Punjab</option>
+        </select>
+    
+    <input type="submit" name="" id="">
+
+    </form>
+
+    <progress value="45" max="100">
+    </progress>
+
+    <div id="table" style="position: absolute; bottom: 10px; left: 20px;">
+        <table border="1" cellspacing="0">
+            <tr>
+                <td>Column1</td>
+                <td>Column2</td>
+                <td>Column3</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Row1 cell1</td>
+                <td>Row2 cell2</td>
+                <td>Row2 cell3</td>
+            </tr>
+            <tr>
+                <td>Row2 cell2</td>
+                <td>Row2 cell3</td>
+            </tr>
+            <tr>
+                <td colspan="3">Row3 cell1</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

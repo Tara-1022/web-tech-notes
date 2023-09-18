@@ -1,0 +1,90 @@
+<!-- traversal - accessing other elements starting from a particular one 
+i.e; traverse the DOM-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traversal</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        html, body{
+            height: 100%;
+        }
+        div{
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- .parents(<el>) => collects all parents up till root (or specified el for parentsUntil)
+    .parent() => direct parent
+     -->
+    <div class="box1">
+        Box 1
+        <div class="box2">
+            Box 2
+            <div class="box3">
+                Box 3
+                <!-- immediate parent; .parent() -->
+                <div class="box4">
+                    Box 4 
+                    <!-- start here -->
+                </div>
+                <div class="box5">
+                    Box 5
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <button id="btn" style="background-color: blanchedalmond;">Change Style</button>
+    <br><br>
+    <div style="height: 150px;">
+        <ul class="fruits">
+            <li>Apple</li>
+            <li>Orange</li>
+            <li>Lychee</li>
+            <li>Dragon</li>
+            <li id="waldo">Watermelon</li>
+            <li>Pomegranete</li>
+        </ul>
+    </div>
+    <button id="btn2" style="background-color: teal; color: white;">Change Style</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                let box4 = $(".box4");
+                console.log(box4.parentsUntil('.box3'))
+                if (box4.parent().css("backgroundImage") == "none"){
+                    box4.parentsUntil('.box1').css("backgroundImage", "url(../image.jpg)").css("backgroundSize", "cover")
+                }
+                else{
+                    box4.parentsUntil('.box1').css("backgroundImage", "none")
+                }
+                // replace for each .parent, .parents, .parentsUntil(<selector>)
+                // parentsUntil body excludes body
+            })
+
+            // .first, .last => gives appropriate child of .children()
+            $('#btn2').click(function(){
+                let fruits = $('.fruits')
+                console.log(fruits.find('#waldo').text())
+                if (fruits.find('#waldo').text() == 'waldo'){
+                    fruits.children().css('backgroundColor', 'white')
+                    fruits.children().first().text('Apple')
+                    fruits.children().last().text('Pomegranete')
+                    fruits.find('#waldo').text('Watermelon')
+                }
+                else{
+                    fruits.children().css('backgroundColor', 'teal').css('color', 'black')
+                    fruits.children().first().text('first')
+                    fruits.children().last().text('last')
+                    fruits.find('#waldo').text('waldo')
+                }
+            })
+        })
+    </script>
+</body>
+</html>

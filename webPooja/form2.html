@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="logic.php">
+        Name: <input type="text" name="name" required><br><br>
+        Password: 
+        <input type="password" name="passwd" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <button type="button">Click</button>
+        <button type="submit" style="color: aqua;">Login</button>
+        <button type="reset">Clear</button>
+        <progress value="45" max="100"></progress>
+        <!-- ?=.*\d if it matches any digit -->
+        <!-- ?=.*[a-z] checks lowecase character -->
+        <!-- ?=.*[A-Z] checks uppercase charagcter -->
+        <!-- .{8,} -->
+        
+    </form>
+</body>
+</html>

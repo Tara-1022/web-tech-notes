@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vroom</title>
+    <script src="01_31-08-2023.js"></script>
+    <style>
+        #flasher{
+            width: 250px;
+            height: 200px;
+            background-color: violet;
+            border: 2px solid black;
+            margin: auto 
+            /* automatically divides page equally so box is in center */
+        }
+    </style>
+</head>
+<body onload="init()">
+    <button onclick="pauseAlert()">Pause alerts</button>
+    <button onclick="startAlert()">Start alerts</button>
+    <br>
+    <br>
+
+    <div id="flasher"></div>
+    <br><br>
+    
+    <button onclick="startFlashing()">Start</button>
+    <button onclick="stopFlashing()">Stop</button>
+    <br>
+    <input type="range" min="10", max="500" id="time" >
+
+    <br><br><br>
+    <div id="frog_div">
+        <img src="frog.png" id="frog" width="125px" height="100px">
+    </div>
+    <br>
+    <button onclick="move()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <br>
+</body>
+</html>

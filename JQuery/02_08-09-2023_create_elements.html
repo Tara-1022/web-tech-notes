@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elements</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Dynamic generation of content after existing one 
+        append - adds at end of element
+
+     -->
+
+    <script>
+        var n = 0;
+        var changed = new Set();
+        changed.add(-1)
+        $(document).ready(function () {
+            $("#ip").keyup(function () {
+                text = $("#ip").val();
+                $("#op").append("<div id='" + n + "''>" + text + "</div>");
+                n += 1;
+                if (changed.size <= n) {
+                    $("#change").removeAttr("disabled");
+                }
+            })
+
+            $("#change").click(function () {
+                id = -1
+                while (changed.has(id)) {
+                    id = Math.floor(Math.random() * n);
+                }
+                $("#" + id).css({ color: "orange", fontWeight: "bold" })
+                changed.add(id);
+                if (changed.size > n) {
+                    $("#change").attr("disabled", true);
+                }
+            })
+
+            $("#remove").click(function () {
+                $("#op").children().last().remove();
+                changed.delete(n - 1);
+                n -= 1;
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button id="change">
+        change something
+    </button>
+    <input type="text" id="ip">
+    <button id="remove">Remove last line</button>
+    <div id="op"></div>
+</body>
+
+</html>

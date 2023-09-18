@@ -1,0 +1,23 @@
+MVC - Model (data), View (presentation), Controller (intermediate logic) framework
+simplifies older javascript concepts
+based on pure JS, HTML
+
+Single Page Applications - fewer lines of code, indepedent of styling, pure HTML templates
+
+prdefined library file
+
+AngularJS defines directives as HTML attributes - to control the Page
+expressions to simplify binding of data to View
+
+every directive starts with 'ng'
+- ng-app - indicate aj take control
+- ng-init - create intial data
+- ng-model - bind view(input) to model
+- ng-bind - bind model to view (output) OR {{}} expression tag
+
+- ng-click
+
+$scope.<modelName> to access data
+
+
+ng-repeat - "item in collection" <element>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+            var bmi = (weight / (height ** 2)).toPrecision(2);
+            document.getElementById("bmi_out").innerHTML = "BMI: " + bmi;
+            var status = "<span  style='color:darkslategray;'>Undefined</span>";
+            if (bmi < 18){
+                status = "<span  style='color:red;'>Underweight</span>";
+            }
+            else if(bmi > 25){
+                status="<span  style='color:red;'>Overweight</span>";
+            }
+            else if(bmi <= 25){
+                status="<span  style='color:green;'>Normal</span>";
+            }
+            if (bmi == 'NaN'){
+                status = 'Invalid';
+                // or check if both not emptys
+            }
+            document.getElementById("bmi_status").innerHTML = status;
+            // call minimal times as it searches entire page each time; increased computation
+        }
+    </script>
+</head>
+
+<body>
+    <!-- bmi = weight/height**2-->
+    <!-- show normal, obese, underweight statuses based on value -->
+    
+        <label for="weight">Weight (Kg): </label>
+        <input type="text" onkeyup="calculateBMI()" placeholder="Enter Weight" id="weight" style="margin: 5px;"> <br>
+
+        <label for="height">Height (m):   </label>
+        <input type="text" onkeyup="calculateBMI()" placeholder="Enter Height" id="height" style="margin: 5px;"> <br>
+
+        <!-- <input type="submit"> -->
+        <!-- <button onclick="calculateBMI()" style="margin: 5px;">Calculate</button> -->
+
+    <br> <br>
+    <div class="output" id="bmi_out" style="color: coral;">BMI: </div>
+    <br>
+    <div class="output" id="bmi_status"></div>
+
+    <!-- onload - triggered on page load -->
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- https://www.w3schools.com/bootstrap5/bootstrap_get_started.php -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap intro</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- net connection since links -->
+
+    <!-- default padding, margin, font style, size etc -->
+    <!-- use pre-defined templates by class names-->
+</head>
+
+<body>
+    <!-- container
+    - similar to div element but responsive
+    - .container => fixed-width
+    - .container-fluid => full width (no margin) -->
+
+    <div class="container text-primary bg-warning text-center" style="border: 1px solid black;">
+        <h1>Bootstrap</h1>
+    </div>
+    <div class="container-fluid bg-info mt-3" style="border: 1px solid black;">
+        <h1 class="text-black-50">Bootstrap Fluid</h1>
+    </div>
+    <div class="container">
+        <h2 class="text-bg-danger">One more</h2>
+    </div>
+
+    <!-- text color: .text-muted, text-warning... -->
+
+    <span class="container border border-info p-3">hi</span>
+    <br>
+    <span class="container-fluid border border-dark rounded"></span> <!--white-->
+    <!-- rounded-sm, rounded-md, rounded-lg -->
+
+    <!-- text-center, text-start, tetx-end, text-justify (paragraph justify) -->
+    <p class="text-justify"> Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, <br>quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum[d]</p>
+
+    <!-- {property}{sides}-{size}
+    property => p(adding)/m(argin)
+    sides => default all => t(op), b(ottom), s(eft), e(ight),  
+    size => 0 to 5 or auto => 0 to 48px-->
+
+    <!-- media 
+    => image
+        - rounded, rounded-circle, img-thumbnail [grey border]-->
+    <img class="rounded" src="image.jpg" >
+    <img class="rounded-circle" src="image.jpg" >
+    <img class="img-thumbnail mt-2" src="image.jpg" >
+
+    <!-- button 
+    btn plus,
+    btn-color or
+    btn-link 
+    automatic hover effect-->
+    <div class="container border border-dark" style="text-align: center;">
+    <button class="btn">Basic</button>
+    <button class="btn btn-success"> Success</button>
+    <button class="btn btn-link"> Link</button>
+    
+    <button class="btn-success"> Misclassed</button>
+    
+    <button class="btn btn-link btn-success ">Save Link</button>
+
+    <!-- outline button => btn-outline-color
+    color on hover -->
+    <!-- button size - btn-sm, btn-lg -->
+    <button class="btn btn-outline-secondary btn-sm">maybe?</button>
+    <button class="btn btn-outline-warning btn-lg">not</button>
+
+    <!-- spinner button(like loading symb) 
+    spinner-border-[size] infinite spin-->
+    <button class="btn btn-dark">
+        <span class="spinner-border spinner-border-sm">Let's see</span>
+        OOps
+    </button>
+</div>
+</body>
+
+</html>

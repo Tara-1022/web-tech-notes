@@ -1,0 +1,32 @@
+div{
+    /* Common styles */
+    width: 400px;
+    height: 500px;
+    color: white;
+}
+.b1{
+    background-color: rgb(33, 104, 104);
+    padding: 40px;
+}
+.b2{
+    background-color: blueviolet;
+    position: relative;
+    /* left: 30px; */
+    top: 30px;
+    right:30px;
+    /* bottom: 30px; */
+    /* sits on top other elements = control overlap using z-index
+    => greater value is seen on top 
+    => used when there is a non-static  position property*/
+    z-index: -1;
+}
+.b3{
+    background-color: rgb(26, 11, 113);
+}
+.b4{
+    background-color: blue;
+    position: absolute;
+    top:100px;
+    left: 100px;
+}
+/*  */

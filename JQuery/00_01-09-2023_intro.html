@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+    <script src="jquery.min.js"></script>
+    <!-- downloaded -->
+    <script>
+        $(document).ready(function () {
+            alert("jquery")
+            $("#12").click(
+                function () {
+                    var thing = "<b>" + $("#txt").val() + "</b>"
+                    // alert("actually a button");
+                    $(".op").text(thing)
+                    $(".op2").html(thing)
+                }
+
+            );
+            $("#n1").keyup(
+                getsum
+            )
+            $("#n2").keyup(
+                getsum
+            )
+            $("#bmi").click(function () {
+                var h = parseInt($("#h").val());
+                var w = parseInt($("#w").val());
+                var bmi = w / (h * h);
+                $("#bmiop").html("BMI:" + bmi)
+            }
+            );
+
+            // text() - get text from selected element (block level); excludes tags
+            // html() - innerHTML
+            // val() - value of form fields
+
+            $("#si").click(function () {
+                var pa = parseInt($("#pa").val());
+                var r = parseInt($("#r").val());
+                var t = parseInt($("#t").val());
+
+                var amt = pa * (1 + r * t / 100)
+                var si = amt - pa
+                $("#siop").html("Amount: Rs " + amt + "<br> Interest: Rs " + si)
+            }
+            );
+
+            $("#tog").click(
+                function () {
+                    $("#frog").toggle()
+                })
+        });
+
+
+        function getsum() {
+            $(".op3").html(
+                "<span style='color:green;'> you entered sum:&nbsp;" +
+                (parseInt($("#n1").val()) + parseInt($("#n2").val()))
+                +
+                "&nbsp;mult:&nbsp;" +
+                // other operators - no need to convert
+                ($("#n1").val() * $("#n2").val())
+                +
+                "&nbsp;</span>"
+            )
+        }
+    </script>
+</head>
+
+<body>
+    <button id="12">not a button</button>
+    <div class="op"></div>
+    <div class="op2"></div>
+    <input type="text" id="txt" placeholder="Yo">Enter something
+
+    <br>
+    <input type="text" id="n1"> num 1
+    <br>
+    <input type="text" id="n2"> num 2
+    <br>
+    <div class="op3"></div>
+    <br>
+    <fieldset>
+        <input type="text" id="h">height
+        <br>
+        <input type="text" id="w">weight
+        <br>
+        <div id="bmiop"></div>
+        <br>
+        <button id="bmi">BMI</button>
+    </fieldset>
+
+    <hr>
+    <div id="simple_interest" title='anytime for sure this is a potato laptop it cannot kill you'>
+        principle amount:
+        <input type="text" id="pa">
+        <br>
+        annual interest rate:
+        <input type="text" id="r">
+        <br>
+        tenure:
+        <input type="text" id="t">
+        <br>
+        <button id="si">Calculate</button>
+        <div id="siop">
+
+        </div>
+    </div>
+
+    <br>
+    <div id="frog" title="frog" hidden>
+        <img src="frog.png">
+    </div>
+    <br>
+    <button id="tog">Peek-a-boo</button>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG-intro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script>
+        function getNum(num) {
+            if (!num) {
+                return 0
+            }
+            return num
+        }
+        var app = angular.module("MyApp", []);
+        app.controller("MyController", function ($scope) {
+            // $scope - predefined reference variable to access all models
+            $scope.add = function () {
+                $scope.sum = getNum(parseInt($scope.n1)) + getNum(parseInt($scope.n2));
+                $scope.eval()
+            }
+
+            $scope.eval = function () {
+                if ($scope.sum % 2 == 0) {
+                    $scope.fin = "DisLike"
+                }
+                else {
+                    $scope.fin = "Like"
+                }
+            }
+
+            $scope.mul = function () {
+                $scope.sum = getNum(parseInt($scope.n1)) * getNum(parseInt($scope.n2));
+                $scope.eval()
+            }
+
+            $scope.calcSI = function(){
+                $scope.si = getNum(parseInt($scope.pa)) * getNum(parseInt($scope.r)) * getNum(parseInt($scope.t)) / 100
+                $scope.amt = getNum(parseInt($scope.pa)) + $scope.si
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="MyApp" ng-init="name='Tara';list=[1,2,3,4]" ng-controller="MyController">
+    <!-- control entire body through angular framework -->
+    <input type="text" ng-model="name">
+    <p style="color: purple;">{{name}}</p>
+    <!-- angular js expression tag => {{}} -->
+    <p style="color:antiquewhite; background-color:cadetblue;" ng-bind="name"></p>
+    <br><br>
+
+    N1:<input type="text" ng-model="n1" ng-keyup="add()"><br>
+    N2:<input type="text" ng-model="n2" ng-keyup="add()"><br>
+    <p>Sum: {{sum}}</p>
+    <button ng-click="mul()">Multiply</button>
+    <p>{{fin}}</p>
+    <p title="printing a function">{{add}}</p>
+    <!-- expression not recommended - {{}} visible to user if no data -->
+
+    <ul>
+        <li ng-repeat="item in list" ng-bind="item"></li>
+    </ul>
+    <br><br><hr>
+    <h3>SI calculator</h3>
+    P.A <input type="text" ng-model="pa"><br><br>
+    Rate <input type="text" ng-model="r"><br><br>
+    tenure <input type="text" ng-model="t"><br><br>
+    <button ng-click="calcSI()">Caclulate</button>
+    <p>Final amount: <span ng-bind="amt"></span></p>
+    <p>Total Interest: <span ng-bind="si"></span></p>
+</body>
+
+</html>

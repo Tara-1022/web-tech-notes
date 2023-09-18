@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="03_css_positioning_03-08-2023.css">
+</head>
+<style>
+    *{
+        margin: 0px;
+    }
+    ul{
+        background-color: pink;
+        list-style-type: none;
+        overflow: hidden;
+        padding: 0px;
+        text-align: center;
+        position: fixed; /*fixes width of box with content*/
+        height: 15px;
+        width: 100%; /*make sure it always fits viewport*/
+        z-index: 10;
+        /* top: 20px; */
+    }
+    ul li{
+        float:left; 
+        width: 20%;
+    }
+    li a{
+        text-decoration: none;
+        display: block;
+    }
+    li a:hover{
+        background-color: aqua;
+        color: blueviolet;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href = "#">Never</a></li>
+        <li><a href = "#">Gonna</a></li>
+        <li><a href = "#">Give</a></li>
+        <li><a href = "#">You</a></li>
+        <li><a href = "#">Up</a></li>
+    </ul>
+    <div class="b1">Box 1 static</div>
+    <div class="b2">Box 2 relative</div>
+    <div class="b3">Box 3 static</div>
+    <div class="b4"> Box 4 absolute</div>
+</body>
+</html>
+<!-- Normal flow
+- Top to bottom
+- order based on order of writing tags
+
+Altered for design:
+- CSS Position property => static | relative | absolute | fixed | sticky
+        allows additional properties - top bottom, left, right - if set => to adjust distance from 
+    => static = normal flow (default)
+    => relative position (to normal flow position) - offset does not affect other elements
+        - original space will not be auto-filled by other components
+    => absolute (relative to closest relative-positioned ancestor container or window)
+        - does not exist to normal flow boxes
+    =>fixed - does not move with viewport; seen within viewport always
+        - out of normal flow
+    =>sticky - moves to a specific position & sticks on scroll
+
+- CSS Float => float elements left or right in a horizontal line-->

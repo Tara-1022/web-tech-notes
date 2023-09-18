@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing css styles using JQuery</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        const rgba2hex = (rgba) => `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}`
+
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                if ($("#box").text() == "🌕") {
+                    $("#box").text("🌞")
+                    $("#box").css("background-image", "radial-gradient(yellow, orange, red)")
+                }
+                else {
+                    $("#box").text("🌕")
+                    $("#box").css("background-image", "radial-gradient(blue, indigo, black)")
+                }
+            });
+
+            $("#col").change(function () {
+                $("#color_box").css("background-color", $("#col").val())
+                bgcol = rgba2hex($("#color_box").css("background-color"))
+                $("#color_code").text(bgcol)
+                $("#color_name").val("")
+            })
+
+            $("#color_name").keyup(function () {
+                $("#color_box").css("background-color", $("#color_name").val())
+                bgcol = rgba2hex($("#color_box").css("background-color"))
+                $("#color_code").text(bgcol)
+                $("#col").val(bgcol)
+            })
+
+            $("#btn_2").click(function () {
+                if ($("#color_box").css("borderRadius") == "0%") {
+                    $("#color_box").animate({ borderRadius: "150%" }, "fast")
+                }
+                else{
+                    $("#color_box").animate({ borderRadius: "0%" }, "fast")
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- .css action onthe element => pass css property name & value; or a dictionary -->
+    <button id="btn">Click</button>
+    <div id="box">🌕</div>
+    <br><br>
+    <div id="color_box"></div>
+    <br>
+    <p id="color_code">#FFFFFF</p>
+    <br>
+    <input type="color" id="col">
+    <input type="text" id="color_name" placeholder="color_name">
+    <button id="btn_2">Morph</button>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #box {
+            background-image: radial-gradient(blue, indigo, black);
+            padding: 20px;
+            text-align: center;
+            /* height: 50px; */
+            vertical-align: middle;
+        }
+
+        #color_box {
+            margin: auto;
+            height: 25%;
+            width: 50%;
+            border: 1px dashed black;
+        }
+    </style>
+</body>
+
+</html>

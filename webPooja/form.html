@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body style="background-color: yellowgreen;">
+    <h3>Sign In</h3>
+    <!-- action location of server side program -->
+    <!-- how to send the data  -->
+    <!-- get - not secured, can be cached -->
+    <!-- post - secure, never cached -->
+    <!-- form elements
+        - input
+        - select
+        - textarea
+        - button
+    -->
+    <!-- input types - text, password, email, date, time, number, color, radio, checkbox, submit, reset, fdddile, url -->
+
+    <!-- required - mandatory to fill d-->
+    <!-- readonly - can only read -->
+    <!-- maxlength = 10 then only 10 characters can be typed by the usejujr -->
+    <form action="server" method="get"> 
+        
+        <fieldset style="background-color: rgb(158, 249, 158);">
+            <legend align="center">APPLICATION FORM</legend>
+            <label for="email">Email: </label>
+        <input type="email" name="email" placeholder="email" id="email">
+        <br><br>
+        <label for="passwd">Password: </label>
+        <input type="password" name="passwd" placeholder="password" id="passwd">
+        <br><br>
+        <label for="dob">DOB: </label>
+        <input type="date" name="dob" placeholder="DOB" id="dob">
+        <br><br>
+        <label for="age">Age: </label>
+        <input type="number" name="age" placeholder="age" id="age" min="18" max="67">
+        <br><br>
+        <label for="color">Color: </label>
+        <input type="color" name="color" placeholder="color" id="color">
+        <br><br>
+        <label for="gender">Gender: </label>
+        <input type="radio" name="gender" id="gender" value="male">Male
+        <input type="radio" name="gender" id="gender" value="female" checked>Female
+        <br><br>
+        <label for="skill">Skills: </label>
+        <input type="checkbox" name="skill[]" id="skill" value="C">C
+        <input type="checkbox" name="skill[]" id="skill" value="Java">Java
+        <input type="checkbox" name="skill[]" id="skill" value="Python">Python
+        <br><br>
+        <label for="state">State: </label>
+        <select name="state" id="state">
+            <option value="Kerala">Kerala</option>
+            <option value="TN">TN</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+        <br><br>
+        <label for="file">File: </label>
+        <input type="file" name="file" id="file" multiple>
+        <br><br>
+        <textarea name="ta" id="ta" cols="30" rows="10"></textarea>
+        </fieldset>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <input type="image" src="https://www.flaticon.com/free-icon/submit_5307921?term=submit&page=1&position=7&origin=search&related_id=5307921">
+    
+        
+    
+    </form>
+    
+</body>
+</html>
