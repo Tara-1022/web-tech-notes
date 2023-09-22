@@ -1,16 +1,16 @@
 <!-- JSON - javascript object notation
     JSON is text data for storing and transporting data
 created using -> {name(property - > can be either in quotations or without it):value} 
-json.parse() -> convert json string to js object
-json.stringify() -> json object to json string
 
 json object literal -> enclosed in double quotes (single quotes is in javascript object)
 json string -> single quotes for the dict like structure
 
 the datatypes acceptable as values are - number, string, boolean, array, object and null-->
+<!-- language independent means of transferring data -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,38 +18,82 @@ the datatypes acceptable as values are - number, string, boolean, array, object 
     <script>
         //js object (array of js object)
         let student = [
-            {name: "Arun", age: 20, location: "Coimbatore", cgpa: 9.5}, //index 0
-            {name: "Ar", age: 20, location: "Coimbatore", cgpa: 9.5}, //index1
-            {name: "Aru", 
-            age: 20, 
-            location: "Cbe", 
-            cgpa: 9.5}]; //index2
-            // property must be double-quoted string
-            // values can also be int, float bool, array, null or object
-            //" can be nested
-            let fruits = {"orange":{
-                 "color": "orange",
-                 "weight":5
-            }}
+            { name: "Arun", age: 20, location: "Coimbatore", cgpa: 9.5 }, //index 0
+            { name: "Ar", age: 20, location: "Coimbatore", cgpa: 9.5 }, //index1
+            {
+                name: "Aru",
+                age: 20,
+                location: "Cbe",
+                cgpa: 9.5
+            }]; //index2
+
+
+        // property must be double-quoted string
+        // however, in js they are automatically converted to JS object. Quotes not needd (for properties)
+        // values can also be int, float bool, array, null or object
+        //" can be nested
+        let fruit = {
+            "orange": {
+                "color": "orange",
+                "weights": [5, 4, 5, 6, 5, 4, 6],
+                "taste": null
+            }
+        }
+
         //to display
-        // console.log(student);
-        // console.log(student.name)
         document.write(student[0].name + "<br>");
         document.write(student[2].location);
         document.write("<br> ================================ <br>")
 
-        for (var i = 0; i < student.length; i++){
+        for (var i = 0; i < student.length; i++) {
             document.write(student[i].name + "<br>")
             document.write(student[i].age + "<br>")
             document.write(student[i].location + "<br>")
             document.write(student[i].cgpa + "<br>")
             document.write("================================ <br>")
         }
+        // dot notation for property access
+        console.log(fruit.orange.color)
+        console.log(fruit.orange)
+        console.log(fruit.orange.taste)
 
+        // Create an array of JSON objects
+        var fruits = [
+            {
+                name: "orange",
+                "color": "orange",
+                "weights": [5, 4, 5, 6, 5, 4, 6],
+                "taste": null
+            },
+            {
+                name: "apple",
+                color: "red",
+                weights: [6, 5, 2, 3, 2],
+                taste: "sharp"
+            }
+        ]
+        console.log(fruits[1]) //parseable
+        console.log(fruits[1].color)
+        let fruit_json = JSON.stringify(fruit) //json.stringify() -> json object to json string (proper format)
+        console.log(fruit_json)
+        let fruit_parse = JSON.parse(fruit_json) //json.parse() -> convert json string to js object
+        console.log(fruit_parse)
+
+        let fruits_json = JSON.stringify(fruits)
+        let fruits_parse = JSON.parse(fruits_json)
+        
+        var op = "<table border= 1px cellspacing=0px><tr><th>Name</th><th>Color</th><th>Weights</th><th>Taste</th></tr>"
+        for(var i=0; i<fruits_parse.length; i++){
+            op += "<tr><td>" + fruits_parse[i].name + "</td><td>" + fruits_parse[i].color
+                + "</td><td>" + fruits_parse[i].weights + "</td><td>" + fruits_parse[i].taste
+        }
+        op += "</table>"
+        document.write(op)
     </script>
-    <!-- language independent means of transferring data -->
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
