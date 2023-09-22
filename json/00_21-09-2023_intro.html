@@ -1,0 +1,44 @@
+<!-- JSON - javascript object notation
+    JSON is text data for storing and transporting data
+created using -> {name(property - > can be either in quotations or without it):value} 
+json.parse() -> convert json string to js object
+json.stringify() -> json object to json string
+
+json object literal -> enclosed in double quotes (single quotes is in javascript object)
+json string -> single quotes for the dict like structure
+
+the datatypes acceptable as values are - number, string, boolean, array, object and null-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //js object (array of js object)
+        let student = [
+            {name: "Arun", age: 20, location: "Coimbatore", cgpa: 9.5}, //index 0
+            {name: "Ar", age: 20, location: "Coimbatore", cgpa: 9.5}, //index1
+            {name: "Aru", age: 20, location: "Cbe", cgpa: 9.5}]; //index2
+        //to display
+        // console.log(student);
+        // console.log(student.name)
+        document.write(student[0].name + "<br>");
+        document.write(student[2].location);
+        document.write("<br> ================================ <br>")
+
+        for (var i = 0; i < student.length; i++){
+            document.write(student[i].name + "<br>")
+            document.write(student[i].age + "<br>")
+            document.write(student[i].location + "<br>")
+            document.write(student[i].cgpa + "<br>")
+            document.write("================================ <br>")
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

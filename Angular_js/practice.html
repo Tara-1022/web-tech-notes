@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script>
+    var app = angular.module("testApp", []);
+    app.controller("control", function ($scope) {
+      $scope.textChange = "App";
+      $scope.quickAlert = function(){
+        alert("quick alert")
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div ng-init="name='placeholder';myCol='pink';colors=['yellow','orange','red','pink']">
+    <p>Name : <input type="text" ng-model="name"></p>
+    <h1>Hello {{name}}</h1>
+    <input style="background-color: {{myCol}}" ng-model="myCol">
+    <ul>
+      <li ng-repeat="x in colors">
+        {{ x }}
+      </li>
+    </ul>
+  </div>
+
+  <div ng-app="testApp" ng-controller="control">
+    <input type="text" ng-model="testApp">
+    <p>This is {{textChange}}</p>
+    <button ng-click="quickAlert()">Quick</button>
+  </div>
+</body>
+
+</html>
