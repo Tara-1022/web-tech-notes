@@ -74,10 +74,12 @@ the datatypes acceptable as values are - number, string, boolean, array, object 
         ]
         console.log(fruits[1]) //parseable
         console.log(fruits[1].color)
+        console.log("original "+fruit.orange.color)
         let fruit_json = JSON.stringify(fruit) //json.stringify() -> json object to json string (proper format)
-        console.log(fruit_json)
+        console.log(typeof(fruit_json)+fruit_json)
+        console.log("stringed "+fruit_json.orange)
         let fruit_parse = JSON.parse(fruit_json) //json.parse() -> convert json string to js object
-        console.log(fruit_parse)
+        console.log("parsed "+fruit_parse.orange)
 
         let fruits_json = JSON.stringify(fruits)
         let fruits_parse = JSON.parse(fruits_json)
