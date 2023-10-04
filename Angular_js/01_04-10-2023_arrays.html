@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular arrays</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("App", [])
+        app.controller("Controller", function ($scope) {
+            $scope.numbers = [10, 45, 67, 89]
+            $scope.names = ["John", "Adams"]
+            // mixed values allowed
+            // to iterate
+            $scope.opinions = [
+                { item: "guitars", opinion: "good" },
+                { item: "orange", opinion: "good" },
+                { item: "apple", opinion: "meh" },
+                { item: "opinions", opinion: "bad" },
+                { item: "data types", opinion: "too many" },
+                { item: "javascript", opinion: "annoying" },
+                { item: "S.No", opinion: "unnecessary" },
+            ]
+
+            $scope.addtuple = function(){
+                if ($scope.item == undefined || $scope.opinion == undefined){
+                    alert("Can't add empty data")
+                    return
+                }
+                $scope.opinions.push({item: $scope.item, opinion: $scope.opinion})
+            }
+
+            $scope.removetuple = function(index){
+                $scope.opinions.splice(index, 1)
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="App" ng-controller="Controller">
+    <ul>
+        <li ng-repeat="name in names" ng-bind="name"></li>
+    </ul>
+    <div ng-repeat="num in numbers" ng-bind="num"></div>
+    <table cellspacing="0" border="1px" align="center">
+        <tr align="center">
+            <th>S.No</th>
+            <th>Item</th>
+            <th>Opinion</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="opinion in opinions" align="center">
+            <td>{{$index + 1}}</td>
+            <td ng-bind="opinion.item"></td>
+            <td ng-bind="opinion.opinion"></td>
+            <td ng-click="removetuple($index)" style="text-decoration: underline; color: blue;">Remove</td>
+        </tr>
+    </table>
+    <br>
+    Item: &nbsp; &nbsp; &nbsp;<input type="text" ng-model="item"> <br> <br>
+    Opinion: <input type="text" ng-model="opinion"> <br>
+    <button ng-click="addtuple()">Add</button>
+</body>
+
+</html>
