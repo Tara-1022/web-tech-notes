@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script src="angular.min.js"></script>
+    <script>
+    </script>
+</head>
+<body ng-app="">
+    <!-- angular js allows client-side form vaildation -->
+    <!-- monitor & track the state of the form - fields are touched/modified/empty -->
+    <!-- show error messages -->
+
+    <!-- HTML predefined validators - input attributes (type & required) -->
+    <!-- Angularjs has a form controller object to mointor the form field state -->
+    <!-- The form controller is attached using the name as reference-->
+    <!-- 
+        Form states:
+        - $valid - true if valid
+        - $invalid
+        - $pristine - field not touched/modified
+        - $dirty - field modified
+     -->
+     <form name="a_form">
+        <!-- each input should have a name to keep track -->
+        Enter name: <span style="color: red;">*</span> <input type="text" name="name" ng-model="name" required>
+        <span ng-show="a_form.name.$dirty && a_form.name.$invalid" style="color: red;">Enter a valid name</span>
+        <br> <br>
+        <!-- ng-show is a conditional directive -->
+        <div>
+            Valid: <span ng-show="a_form.name.$valid" style="color: green;">{{a_form.name.$valid}}</span>
+            <span ng-show="!a_form.name.$valid" style="color: red;">{{a_form.name.$valid}}</span>
+        </div> <br>
+        <div>
+            Invalid: <span ng-show="a_form.name.$invalid" style="color: green;">{{a_form.name.$invalid}}</span>
+            <span ng-show="!a_form.name.$invalid" style="color: red;">{{a_form.name.$invalid}}</span>
+        </div> <br>
+        <div>
+            Pristine: {{a_form.name.$pristine}}
+        </div> <br>
+        <div>
+            Dirty:  {{a_form.name.$dirty}}
+        </div><br>
+        <hr>
+        <br>
+        
+        Enter email: <span style="color: red;">*</span> <input type="email" name="mail" ng-model="mail" required>
+        <span ng-show="a_form.mail.$error.required" style="color: red;">Email required</span>
+        <span ng-show="a_form.mail.$error.email" style="color: red;">Email format wrong</span>
+        <br> <br>
+        <!-- $error object stored errors - deal with different types of errors/validators
+        - .required - required validator
+        - .email - email format validator -->
+        <hr>
+        <br>
+        <button type="button" ng-submit="save()">Submit</button>
+        <!-- angular has a submit directive -->
+     </form>
+</body>
+</html>
