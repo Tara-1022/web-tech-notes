@@ -52,7 +52,7 @@
         </tr>
         <tr ng-repeat="opinion in opinions" align="center">
             <td>{{$index + 1}}</td>
-            <td ng-bind="opinion.item"></td>
+            <td ng-bind="opinion.item | uppercase"></td> <!-- filter -->
             <td ng-bind="opinion.opinion"></td>
             <td ng-click="removetuple($index)" style="text-decoration: underline; color: blue;">Remove</td>
         </tr>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("App", [])
+        app.controller("Controller", function ($scope){
+            $scope.employees = [
+                {name:"A", id:123, dob:new Date('12/04/1997'), salary:10000},
+                {name:"B", id:234, dob:new Date('5/25/2005'), salary:10000},
+                {name:"C", id:876, dob:new Date('6/23/1997'), salary:213434},
+                {name:"D", id:366, dob:new Date('11/04/1999'), salary:24332},
+                {name:"E", id:106, dob:new Date('9/09/1954'), salary:5858555},
+                {name:"F", id:345, dob:new Date('12/07/2000'), salary:323444}
+                // mm-dd-yyyy
+            ]
+        })
+    </script>
+    
+</head>
+<body ng-app="App" ng-controller="Controller"> 
+    <!--  filters allow autmatic conversion of output
+        <item> | filter: 'expression'
+    - lowercase
+    - uppercase
+    - orderBy (only for collection fo data; order by expression in ng-repeat)
+    - date
+    - currency ($ by default) - gives commas, symbol and two digits of fractional part -->
+    <table cellspacing="0" border="1px" align="center">
+        <tr align="center">
+            <th>S.No</th>
+            <th>Name</th>
+            <th>ID</th>
+            <th>DoB</th>
+            <th>DoB pretty</th>
+            <th>Salary</th>
+        </tr>
+        <tr ng-repeat="employee in employees | orderBy:'salary'" align="center">
+            <td>{{$index + 1}}</td>
+            <td ng-bind="employee.name | lowercase"></td> <!-- filter -->
+            <td>{{employee.id}}</td>
+            <td ng-bind="employee.dob"></td>
+            <td ng-bind="employee.dob | date:'dd.MM.yyyy'"></td>
+            <td ng-bind="employee.salary | currency:'₹'"></td>
+        </tr>
+    </table>
+</body>
+</html>

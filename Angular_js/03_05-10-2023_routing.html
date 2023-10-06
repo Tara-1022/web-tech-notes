@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing</title>
+
+    <!-- ng-route aids creation of single page applications
+        update the current page with another html file
+        involves hyperlink - to find and fetch content
+    
+        includes Angular-route framework. added as dependency when creating app-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <script>
+        var app = angular.module("RouteApp", ["ngRoute"])
+        app.controller("C", function(){})
+        app.config(function($routeProvider){
+            // $routeProvider - predefined obj that finds page
+            $routeProvider
+            .when("/next", {
+                templateUrl: 'next.html'
+            })
+            .when("/prev", {
+                templateUrl: 'prev.html'
+            })
+            //.when('path', {})
+        })
+    </script>
+
+
+</head>
+
+<body ng-app="RouteApp" ng-controller="C">
+    <h1>This is the main page</h1>
+    <h2>Welcome</h2>
+    <hr>
+
+    <a href="#!prev"><- Prev page</a>
+            <a href="#!next">&nbsp;&nbsp;Next page -></a>
+            <!-- #!<> keyword to identify root -->
+            <br><br>
+            <div ng-view>
+                <!-- fetch content here -->
+                <!-- not viewable on inspect -->
+                <!-- ease of development - dividing up work -->
+            </div>
+</body>
+
+</html>
