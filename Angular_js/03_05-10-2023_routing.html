@@ -17,6 +17,7 @@
 
     <script>
         var app = angular.module("RouteApp", ["ngRoute"])
+        //"ngRoute - dependency"
         app.controller("C", function(){})
         app.config(function($routeProvider){
             // $routeProvider - predefined obj that finds page
@@ -46,7 +47,8 @@
             <div ng-view>
                 <!-- fetch content here -->
                 <!-- not viewable on inspect -->
-                <!-- ease of development - dividing up work -->
+                <!-- ease of development - dividing up work of developing different pages-->
+                <!-- access content of the file without actually open the file -->
             </div>
 </body>
 
