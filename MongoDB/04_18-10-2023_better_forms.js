@@ -4,12 +4,13 @@ const { URLSearchParams } = require('url')
 
 const mongoose = require('mongoose')
 
+// automatically creates database & collection if not available
 mongoose.connect('mongodb://127.0.0.1:27017/test_db').then(function () {
     console.log('database connected')
 })
 
 const schema = new mongoose.Schema({ name: String, reg: String })
-const model = mongoose.model('test', schema)
+const model = mongoose.model('students', schema)
 
 
 const server = http.createServer(function (req, res) {
@@ -34,8 +35,19 @@ const server = http.createServer(function (req, res) {
             res.end()
         })
     }
+    else if (req.url == '/view'){
+        res.writeHead(200, {'Content-Type':'text/html'})
+        model.find().then(function(data){
+            data.forEach(record => {// lambda expression
+                res.write("Name: " + record.name)
+                res.write("  Reg: " + record.reg + "<br>")
+            })
+            res.end()
+        })
+    }
 })
 
+// start server
 server.listen('5000', function(){
     console.log('server is running at http://localhost:5000')
 })
