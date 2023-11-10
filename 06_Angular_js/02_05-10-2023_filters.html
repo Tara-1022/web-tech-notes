@@ -36,6 +36,7 @@
             <th>ID</th>
             <th>DoB</th>
             <th>DoB pretty</th>
+            <th>DoB prettier</th>
             <th>Salary</th>
         </tr>
         <tr ng-repeat="employee in employees | orderBy:'salary'" align="center">
@@ -44,6 +45,7 @@
             <td>{{employee.id}}</td>
             <td ng-bind="employee.dob"></td>
             <td ng-bind="employee.dob | date:'dd.MM.yyyy'"></td>
+            <td ng-bind="employee.dob | date"></td>
             <td ng-bind="employee.salary | currency:'₹'"></td>
         </tr>
     </table>

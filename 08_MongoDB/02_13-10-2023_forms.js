@@ -5,7 +5,7 @@ const { url } = require('inspector')
 const server = http.createServer(function(req, res){ //the form submission request will be cmg here
     if(req.url == '/'){
         res.writeHead(200, {'Content-Type': 'text/html'})
-        fs.createReadStream('MongoDB\\02_13-10-2023_forms.html').pipe(res) 
+        fs.createReadStream('./02_13-10-2023_forms.html').pipe(res) 
     }
     else if(req.url == '/signup'){
         let rawdata = "";

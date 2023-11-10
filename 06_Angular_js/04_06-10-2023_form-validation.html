@@ -25,8 +25,10 @@
      -->
      <form name="a_form">
         <!-- each input should have a name to keep track -->
-        Enter name: <span style="color: red;">*</span> <input type="text" name="name" ng-model="name" required>
+        Enter name: <span style="color: red;">*</span> <input type="text" name="name" ng-model="name" pattern="(ab)*" required>
         <span ng-show="a_form.name.$dirty && a_form.name.$invalid" style="color: red;">Enter a valid name</span>
+        <span ng-show="a_form.name.$error.pattern" style="color: red;">Pattern does not match</span>
+        <span ng-show="a_form.name.$error.required" style="color: red;">Name required</span>
         <br> <br>
         <!-- ng-show is a conditional directive -->
         <div>
@@ -55,7 +57,9 @@
         - .email - email format validator -->
         <hr>
         <br>
-        <button type="button" ng-submit="save()">Submit</button>
+        <button type="button" ng-submit="save()" ng-disabled="a_form.$invalid">Submit</button>
+        <p ng-show="a_form.$pristine">Form is pristine👍</p>
+        <p ng-show="!a_form.$pristine">Form is not pristine👎<br>Form will never be pristine again 🦖</p>
         <!-- angular has a submit directive -->
      </form>
 </body>

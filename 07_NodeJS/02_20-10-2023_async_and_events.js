@@ -61,8 +61,12 @@ emitter.on('read', function(){
     console.log(fs.readFileSync('./01_abc.txt').toString()) // can also do async here
     console.log('read complete\n')
 })
+emitter.on('echo', function(a){
+    console.log(a)
+})
 emitter.emit('read')
 emitter.emit('database')
+emitter.emit('echo','ECHO')
 // exception handling - use the err argument
 // err may be followed by any number of args
 fs.readFile('./01_abc.txt', function (err, data) {
