@@ -1,3 +1,3 @@
 # Web Tech Notes
 
-Notes from web technology classes, semester 5. Mostly comprehennsive
+Notes from web technology classes, semester 5. Mostly comprehensive
